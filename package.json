@@ -13,15 +13,13 @@
   "license": "ISC",
   "description": "Fintech middleware that aggregates and normalizes loan offers from multiple partners",
   "dependencies": {
-    "express": "^5.2.1",
-    "uuid": "^13.0.0"
+    "express": "^5.2.1"
   },
   "devDependencies": {
     "@types/express": "^5.0.6",
     "@types/jest": "^30.0.0",
     "@types/node": "^25.5.0",
     "@types/supertest": "^7.2.0",
-    "@types/uuid": "^10.0.0",
     "jest": "^30.3.0",
     "nodemon": "^3.1.14",
     "supertest": "^7.2.2",

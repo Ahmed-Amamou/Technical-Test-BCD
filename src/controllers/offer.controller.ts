@@ -1,15 +1,15 @@
+import crypto from 'crypto';
 import { Request, Response } from 'express';
 import { getOffers } from '../services/offer.service';
 import { OfferRequest } from '../models/offer';
 import { logger } from '../utils/logger';
-import { v4 as uuidv4 } from 'uuid';
 
 /**
  * POST /offers
  * Accepts a loan request, queries all partners, and returns aggregated offers.
  */
 export async function postOffers(req: Request, res: Response): Promise<void> {
-  const requestId = uuidv4();
+  const requestId = crypto.randomUUID();
   const offerRequest: OfferRequest = {
     amount: req.body.amount,
     duration: req.body.duration,
