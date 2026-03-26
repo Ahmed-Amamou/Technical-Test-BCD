@@ -4,6 +4,8 @@ Service backend (middleware) qui interroge plusieurs partenaires bancaires (APIs
 
 ## Lancer le projet
 
+**Backend :**
+
 ```bash
 npm install
 npm run dev      # mode développement (nodemon + ts-node)
@@ -11,6 +13,17 @@ npm run build    # compilation TypeScript
 npm start        # lancer le build compilé
 npm test         # lancer les tests
 ```
+
+**Frontend (interface de test) :**
+
+```bash
+cd client
+npm install
+npm run dev      # démarre sur http://localhost:5173
+```
+
+> Le serveur Vite proxifie automatiquement les requêtes `/offers` vers le backend (port 3000).
+> Lancez les deux serveurs en parallèle pour tester depuis le navigateur.
 
 ## Endpoint
 
@@ -65,6 +78,17 @@ Si un partenaire échoue, ses offres ne sont pas incluses mais l'erreur est sign
 }
 ```
 
+## Frontend
+
+Une interface React minimaliste (Vite + TypeScript) est fournie dans `client/` pour tester visuellement l'API :
+
+- Formulaire avec montant et durée
+- Affichage des offres normalisées sous forme de cartes (montant, taux, durée, mensualité, coût total)
+- Affichage des erreurs partenaires en rouge (pour vérifier la gestion des échecs partiels)
+- Bouton « Voir la réponse brute » pour inspecter le JSON exact retourné par l'API
+
+> Ce frontend n'est pas le cœur du test — il sert uniquement d'outil pour faciliter la démonstration et le test du backend.
+
 ## Architecture
 
 ```
@@ -76,6 +100,8 @@ src/
 ├── middleware/        # Validation de la requête
 ├── utils/             # Logger structuré, retry, timeout
 └── __tests__/         # Tests Jest (API, service, résilience)
+
+client/                # Interface React (Vite) pour tester l'API visuellement
 ```
 
 ## Choix techniques
