@@ -1,14 +1,17 @@
 {
   "name": "technicaltestbdc",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "dist/server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "nodemon --exec ts-node src/server.ts",
+    "build": "tsc",
+    "start": "node dist/server.js",
+    "test": "jest --forceExit --detectOpenHandles"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": "",
+  "description": "Fintech middleware that aggregates and normalizes loan offers from multiple partners",
   "dependencies": {
     "express": "^5.2.1",
     "uuid": "^13.0.0"
